@@ -1,0 +1,65 @@
+.css-15eea9h {
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 8px 16px;
+}
+
+/* --------- */
+
+/* 인장 */
+.css-s1bfy {
+  min-width: 56px;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+/* 텍박 */
+.css-1xar93x {
+  flex: 1 1 auto;
+  min-width: 0px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+/* --------- */
+/* 이름 */
+.css-g4i7ki {
+  margin: 0px;
+  font-weight: bold;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.57;
+  letter-spacing: 0.00714em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+/* 이름 안 이름 옆 */
+.css-1v2gfp5 {
+    margin: 0px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.66;
+    letter-spacing: 0.03333em;
+}
+
+/* 텏ㅌ, */
+.css-10h2l1d {
+    margin: 0px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    color: rgb(255, 255, 255);
+    display: block;
+}
