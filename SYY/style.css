@@ -6,6 +6,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Noto Serif KR', serif;
+  cursor: none;
 }
 
 body {
@@ -14,6 +15,19 @@ body {
   overflow-x: hidden;
 }
 
+a,
+button,
+.chip,
+.btn,
+input,
+textarea,
+select {
+  cursor: none !important;
+}
+
+.glass-textarea {
+  cursor: text !important;
+}
 
 /* === SPA 섹션 전환용 === */
 section {
@@ -608,4 +622,29 @@ section.active {
   box-shadow: 0 0 25px #39ff14cc;
   transform: scale(1.05);
   color: #39ff14;
+}
+
+#app {
+  isolation: isolate;
+}
+
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5vw;
+  height: 3.8vw;
+  pointer-events: none;
+  z-index: 999999 !important;
+
+  mix-blend-mode: difference;
+  transform: translate(-10%, -10%);
+  transition: opacity 0.2s ease;
+}
+
+#custom-cursor svg {
+  width: 100%;
+  height: 100%;
+  fill: #965fff;
+  overflow: visible;
 }
