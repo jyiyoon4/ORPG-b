@@ -1,0 +1,611 @@
+/* === 기본 설정 및 폰트 === */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Serif KR', serif;
+}
+
+body {
+  background-color: #050505;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+
+/* === SPA 섹션 전환용 === */
+section {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none; /* 기본적으로 모두 숨김 */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* 활성화된 섹션 표시 (기본은 flex) */
+section.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* 💡 스크롤이 필요한 섹션들은 flex 대신 block으로 표시되도록 덮어쓰기 */
+#landing.active,
+#journal.active {
+  display: block;
+}
+
+/* === 섹션 1: 메인 화면 (Landing) === */
+#landing {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(115, 70, 135, 0.5)),
+    url('./pic/wh-u.svg'), url('./pic/swirl.svg'), url('./pic/wh-d.svg');
+
+  background-position:
+    center center,
+    top center,
+    center center,
+    bottom center;
+
+  background-size:
+    100% 100%,
+    100% auto,
+    auto,
+    100% auto;
+
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-color: #ffffff;
+  color: #000;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-attachment: local;
+}
+
+.landing-fixed-content {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.scroll-space {
+  height: 150vh;
+  width: 100%;
+  pointer-events: none;
+}
+
+.crescent-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.crescent-moon {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: inset -30px 10px 0 0 #000;
+}
+
+.landing-title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 3rem;
+  text-align: center;
+  z-index: 2;
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid #000;
+  color: #000;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  border-color: #39ff14;
+  color: #39ff14;
+  text-shadow: 0 0 8px #39ff14;
+  box-shadow:
+    0 0 15px rgba(57, 255, 20, 0.4),
+    inset 0 0 10px rgba(57, 255, 20, 0.2);
+}
+
+/* === 섹션 2: 드림 다이어리 작성방 (Journal) === */
+#journal {
+  background-color: #000000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative; /* 내부 레이어들의 기준점 */
+}
+
+/* 💡 배경 레이어 전체를 담는 래퍼 (스크롤 공간과 동일한 길이를 가져 함께 스크롤됨) */
+.journal-bg-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250vh; /* scroll-space 길이와 맞춰 조절 */
+  z-index: 0;
+  pointer-events: none; /* 클릭 방해 금지 */
+  overflow: hidden;
+}
+
+/* 1. 보라색 그라데이션: 천천히 밝아졌다 어두워지는 호흡(Pulse) 모션 */
+.bg-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(115, 70, 135, 0.2));
+  /* animation: gradientBreathe 6s infinite alternate ease-in-out; */
+}
+
+/* 2. 미세한 실선(lines): 물결처럼 부드럽게 위아래로 유영하는 모션 */
+.bg-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('./pic/lines.svg');
+  background-size: 100% auto;
+  background-position: top center;
+  animation: floatMotion 10s infinite ease-in-out;
+  /* animation: gradientBreathe 4s infinite alternate ease-in-out; */
+}
+
+/* 3. 점들(dots): 밤하늘의 별처럼 미세하게 반짝이는(Twinkle) 모션 */
+.bg-dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('./pic/dots.svg');
+  background-size: cover;
+  background-position: center;
+  animation: twinkleDots 4s infinite alternate ease-in-out;
+  filter: drop-shadow(0 0 10px rgba(210, 186, 229, 0.7));
+}
+
+.bg-sph {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('./pic/sphere.svg');
+  background-size: cover;
+  background-position: center;
+  animation: distortLines 20s infinite alternate ease-in-out;
+}
+
+/* 4. 네온 오브젝트(neo-obj): 독립적으로 둥둥 떠다니며 회전하는 모션 */
+.bg-neo {
+  position: center center;
+  size: 100% 100%;
+  /* top: 15%; 스크롤 배경 내에서의 위치
+  right: 15%;
+  width: 100px; */
+  /* opacity: 0.8; */
+  animation: floatRotate 8s infinite alternate ease-in-out;
+  filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.5));
+}
+
+/* === 개별 애니메이션 키프레임들 === */
+
+/* === 실선 왜곡 애니메이션 키프레임 === */
+@keyframes distortLines {
+  0% {
+    /* 기본 상태 */
+    transform: perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)
+      skewX(0deg);
+  }
+  33% {
+    /* 살짝 커지면서 우측으로 비틀어지고, 원근감이 들어감 */
+    transform: perspective(1000px) scale(1.05) rotateX(-3deg) rotateY(-2deg)
+      skewX(-2deg);
+  }
+  66% {
+    /* 좌측으로 비틀어지며 미세하게 수축 */
+    transform: perspective(1000px) scale(0.98) rotateX(2deg) rotateY(2deg)
+      skewX(2deg);
+  }
+  100% {
+    /* 다시 팽창하며 다른 각도로 일렁임 */
+    transform: perspective(1000px) scale(1.03) rotateX(-1deg) rotateY(-1deg)
+      skewX(-1deg);
+  }
+}
+
+@keyframes gradientBreathe {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes floatMotion {
+  0%,
+  100% {
+    transform: translateX(30px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes twinkleDots {
+  0% {
+    opacity: 0.5;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes floatRotate {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) rotate(15deg) scale(1.05);
+  }
+  100% {
+    transform: translateY(10px) rotate(-10deg) scale(0.95);
+  }
+}
+
+/* 스크롤 길이를 만들어주는 빈 공간 (bg-wrapper와 길이를 맞춥니다) */
+.journal-scroll-space {
+  height: 200vh;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* 💡 화면에 고정되는 콘텐츠 래퍼 */
+.journal-fixed-content {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.journal-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  z-index: 2;
+}
+
+/* 💡 스크롤을 생성하는 빈 공간 */
+.journal-scroll-space {
+  position: relative;
+  height: 150vh; /* 이 값이 클수록 더 깊게 스크롤됩니다 */
+  width: 100%;
+  pointer-events: none; /* 작성칸 클릭을 방해하지 않도록 처리 */
+  z-index: 1;
+}
+
+/* 스크롤되며 화면 우측 상단 쯤에서 시작하는 네온 도형 */
+/* .neon-obj {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  width: 80px;
+  opacity: 0.8;
+  transition: filter 0.3s ease;
+} */
+
+/* 스크롤되며 좌측 하단 쯤에 둥둥 떠있는 보라색 구체 */
+/* .journal-sphere {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  width: 250px;
+  opacity: 0.6;
+  살짝 일렁이고 떠다니는 애니메이션 유지
+  animation:
+    floatMotion 5s infinite ease-in-out,
+    blobShape 6s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+} */
+
+/* 소용돌이는 텍스트 영역 뒤에서 고정된 채 호흡 애니메이션 */
+/* .swirl-bg {
+  position: center center;
+  size: 100% 100%;
+  animation: floatRotate 8s infinite alternate ease-in-out;
+  filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.5));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0.4;
+  animation: breathe 8s infinite ease-in-out;
+  pointer-events: none;
+} */
+
+/* === 유리 질감 텍스트 영역 및 태그 버튼 스타일 (기존과 동일) === */
+.glass-textarea {
+  width: 100%;
+  height: 40vh;
+  background: #0000000c;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  resize: none;
+  outline: none;
+  text-shadow: 0 0 3px #593796;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.tags {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.chip:hover,
+.chip.selected {
+  background: rgba(57, 255, 20, 0.2);
+  border-color: #39ff14;
+  color: #39ff14;
+}
+
+.btn-light {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* === 섹션 3: 꿈 분석 공간 (Analysis) === */
+#analysis {
+  background-color: #000000;
+  background-image: url('./pic/dots.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.analysis-container {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sphere-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blob-sphere {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  animation:
+    blobShape 6s infinite alternate cubic-bezier(0.4, 0, 0.2, 1),
+    floatMotion 8s infinite ease-in-out;
+  box-shadow:
+    inset 0 0 50px rgba(138, 43, 226, 0.5),
+    0 0 30px rgba(138, 43, 226, 0.4);
+}
+
+@keyframes blobShape {
+  0% {
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  }
+  33% {
+    border-radius: 55% 45% 60% 40% / 45% 60% 40% 55%;
+  }
+  66% {
+    border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%;
+  }
+  100% {
+    border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
+  }
+}
+
+@keyframes floatMotion {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(10px);
+  }
+}
+
+.constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.keyword {
+  position: absolute;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  animation: bobbing 4s infinite ease-in-out alternate;
+}
+
+@keyframes bobbing {
+  from {
+    transform: translateY(-5px);
+  }
+  to {
+    transform: translateY(5px);
+  }
+}
+
+.kw-1 {
+  top: 15%;
+  left: 25%;
+  animation-delay: 0s;
+}
+.kw-2 {
+  top: 20%;
+  right: 25%;
+  animation-delay: 1s;
+}
+.kw-3 {
+  bottom: 25%;
+  left: 30%;
+  animation-delay: 2s;
+}
+.kw-4 {
+  bottom: 20%;
+  right: 30%;
+  animation-delay: 0.5s;
+}
+
+.lines-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.lines-svg line {
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 1px;
+  stroke-dasharray: 4;
+}
+
+.chart-container {
+  width: 80%;
+  max-width: 500px;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.bar-label {
+  width: 80px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: right;
+}
+
+.bar-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #39ff14;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #39ff14;
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bar-value {
+  width: 40px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* === 랜딩 화면 버튼 특화 스타일 === */
+#enterBtn {
+  opacity: 0.2; /* 처음엔 흐릿하게 닫혀 있는 상태 */
+  pointer-events: none; /* 클릭 불가 */
+  transition: all 0.6s ease; /* 부드러운 색상/투명도 전환 */
+}
+
+/* 스크롤 하단에 도달했을 때 자바스크립트로 추가될 클래스 */
+#enterBtn.active-btn {
+  opacity: 1;
+  pointer-events: auto; /* 클릭 가능 상태로 전환 */
+  background-color: #fff; /* 네온 그린으로 배경 꽉 채우기 */
+  border-color: #fff;
+  color: #593796; /* 배경이 밝아지므로 글씨는 검정으로 대비 */
+  box-shadow: 0 0 15px #583796cc;
+  font-weight: 600;
+}
+
+/* 활성화된 버튼에 마우스 올렸을 때 추가 이펙트 */
+#enterBtn.active-btn:hover {
+  background-color: #000;
+  border-color: #39ff14;
+  box-shadow: 0 0 25px #39ff14cc;
+  transform: scale(1.05);
+  color: #39ff14;
+}

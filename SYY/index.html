@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REM:IND - Dream Diary</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section id="landing" class="active">
+        <div class="landing-fixed-content">
+          <div class="crescent-container">
+            <div class="crescent-moon"></div>
+          </div>
+          <h1 class="landing-title">당신은 지금 꿈을 꾸고 있습니까?</h1>
+          <button
+            class="btn"
+            id="enterBtn"
+            onclick="navigateTo('landing', 'journal')"
+            disabled
+          >
+            [꿈 기록하러 가기]
+          </button>
+        </div>
+        <div class="scroll-space"></div>
+      </section>
+
+      <!-- ================= -->
+
+      <section id="journal">
+        <div class="journal-bg-wrapper">
+          <div class="bg-sph"></div>
+          <div class="bg-lines"></div>
+          <div class="bg-dots"></div>
+          <img src="./pic/neo-obj.svg" class="bg-neo" alt="Neon Object" />
+          <div class="bg-gradient"></div>
+        </div>
+
+        <div class="journal-fixed-content">
+          <div class="journal-container">
+            <textarea
+              class="glass-textarea"
+              placeholder="이곳에 방금 꾼 꿈의 파편들을 기록하세요..."
+            ></textarea>
+
+            <div class="tags" id="tagContainer">
+              <div class="chip">일반 꿈</div>
+              <div class="chip">자각몽</div>
+              <div class="chip">가위눌림</div>
+              <div class="chip">악몽</div>
+              <div class="chip">길몽</div>
+            </div>
+
+            <button
+              class="btn btn-light"
+              onclick="navigateTo('journal', 'analysis')"
+            >
+              [무의식 분석하기]
+            </button>
+          </div>
+        </div>
+
+        <div class="journal-scroll-space"></div>
+      </section>
+
+      <!-- ================= -->
+
+      <section id="analysis">
+        <div class="analysis-container" id="analysisSpace">
+          <svg class="lines-svg" id="linesSvg"></svg>
+          <div class="bg-dots"></div>
+
+          <div class="sphere-container" id="centerSphere">
+            <img
+              src="./pic/sphere.svg"
+              alt="Purple Sphere"
+              class="blob-sphere"
+            />
+          </div>
+
+          <div class="constellation">
+            <div class="keyword kw-1" id="kw1">비행</div>
+            <div class="keyword kw-2" id="kw2">추적</div>
+            <div class="keyword kw-3" id="kw3">바다</div>
+            <div class="keyword kw-4" id="kw4">미로</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

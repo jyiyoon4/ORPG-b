@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="neogreen" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 595.28 841.89">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        fill: #29ff5b;
+      }
+    </style>
+    <symbol id="New_Symbol_2" data-name="New Symbol 2" viewBox="0 0 2.56 2.56">
+      <circle class="cls-1" cx="1.28" cy="1.28" r="1.28"/>
+    </symbol>
+  </defs>
+  <path class="cls-4" d="M267.88,602.39c12.95-62.2,15.38-125.52,7.22-188.19l-.19-1.47-1.23.83c-19.23,13.1-42.99,16.84-65.19,10.26-8.67-2.57-16.66-6.57-23.76-11.81-.5-8.86.53-17.87,3.14-26.69,6.92-23.35,23.9-41.78,46.58-50.56l.88-.34-.35-.87c-1.31-3.21-2.77-6.35-4.35-9.32-.8-1.47-1.66-2.95-2.63-4.51l-.36-.58-.66.17c-5.55,1.48-11.36,3.17-17.25,5.03l-.31.17c-40.52,33.77-86.52,58.91-136.71,74.73l-.31.17c-6.09,5.08-12.22,10.51-18.2,16.13l-.5.47.3.61c.53,1.09,1.08,2.18,1.66,3.26,1.61,2.94,3.42,5.88,5.38,8.74l.53.77.76-.55c19.67-14.37,44.26-18.66,67.47-11.78,8.75,2.59,16.8,6.63,23.89,11.87.5,8.87-.52,17.82-3.11,26.55-6.65,22.42-22.8,40.49-44.31,49.56l-1.37.58,1.12.97c47.73,41.06,101.77,73.52,160.61,96.49l1.01.39.22-1.06Z"/>
+  <path class="cls-2" d="M257.48,581.12c9.09-43.64,10.79-88.07,5.06-132.05l-.13-1.03-.86.59c-13.49,9.19-30.17,11.82-45.74,7.2-6.08-1.8-11.69-4.61-16.67-8.29-.35-6.22.37-12.54,2.2-18.73,4.86-16.39,16.77-29.32,32.68-35.48l.61-.24-.25-.61c-.92-2.26-1.94-4.45-3.05-6.54-.56-1.03-1.17-2.07-1.84-3.17l-.25-.41-.46.12c-3.9,1.04-7.97,2.23-12.11,3.53l-.22.12c-28.43,23.7-60.71,41.34-95.93,52.44l-.22.12c-4.28,3.56-8.57,7.37-12.77,11.32l-.35.33.21.43c.37.77.76,1.53,1.16,2.29,1.13,2.06,2.4,4.13,3.78,6.13l.37.54.53-.39c13.8-10.08,31.05-13.1,47.34-8.27,6.14,1.82,11.79,4.65,16.77,8.33.35,6.22-.37,12.5-2.18,18.63-4.66,15.74-16,28.41-31.09,34.77l-.96.4.79.68c33.49,28.81,71.41,51.59,112.7,67.7l.71.28.16-.75Z"/>
+  <g>
+    <use width="2.56" height="2.56" transform="translate(186.8 408.38)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(192.8 408.38) scale(1.02 1)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(195.29 403.7) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(187.16 411.85) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(198.65 401.53) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(230.3 390.21) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(220.62 393.82) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(141.52 432.46) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(135.61 437.6) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(151 428.4) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(110.19 450.04) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(114.96 445.16) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(207.2 394.74)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(214.11 394.08)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(221.54 386.27)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(216.08 391.13) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(206.93 400.24) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(225 387.91) scale(.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(226.84 383.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(203.81 398.08)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(203.81 407.11)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(210.64 391.68)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(197.37 404.26)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(129.9 437.24)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(121.88 439.84) scale(.56)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(131.18 441.83) scale(.56)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(136.53 443.67) scale(.56)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(120.6 446.21)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(136.8 434.66)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(142.07 436.72)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(145.2 429.91)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(145.2 433.38)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(111.11 447.48)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(120.03 441.83)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(125.96 440.55)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(112.03 454.01)" xlink:href="#New_Symbol_2"/>
+    <use width="2.56" height="2.56" transform="translate(114.6 446.99)" xlink:href="#New_Symbol_2"/>
+  </g>
+  <rect class="cls-3" width="595.28" height="841.89"/>
+</svg>
