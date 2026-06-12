@@ -36,7 +36,7 @@ section {
   position: absolute;
   top: 0;
   left: 0;
-  display: none; /* 기본적으로 모두 숨김 */
+  display: none;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   align-items: center;
@@ -44,18 +44,17 @@ section {
   flex-direction: column;
 }
 
-/* 활성화된 섹션 표시 (기본은 flex) */
 section.active {
   display: flex;
   opacity: 1;
 }
 
-/* 💡 스크롤이 필요한 섹션들은 flex 대신 block으로 표시되도록 덮어쓰기 */
 #landing.active,
 #journal.active {
   display: block;
 }
 
+/* ==================================================================== */
 /* === 섹션 1: 메인 화면 (Landing) === */
 #landing {
   background-image:
@@ -150,36 +149,34 @@ section.active {
     inset 0 0 10px rgba(57, 255, 20, 0.2);
 }
 
+/* ==================================================================== */
 /* === 섹션 2: 드림 다이어리 작성방 (Journal) === */
+
 #journal {
   background-color: #000000;
   overflow-y: auto;
   overflow-x: hidden;
-  position: relative; /* 내부 레이어들의 기준점 */
+  position: relative;
 }
 
-/* 💡 배경 레이어 전체를 담는 래퍼 (스크롤 공간과 동일한 길이를 가져 함께 스크롤됨) */
 .journal-bg-wrapper {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 250vh; /* scroll-space 길이와 맞춰 조절 */
+  height: 250vh;
   z-index: 0;
-  pointer-events: none; /* 클릭 방해 금지 */
+  pointer-events: none;
   overflow: hidden;
 }
 
-/* 1. 보라색 그라데이션: 천천히 밝아졌다 어두워지는 호흡(Pulse) 모션 */
 .bg-gradient {
   position: absolute;
   width: 100%;
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(115, 70, 135, 0.2));
-  /* animation: gradientBreathe 6s infinite alternate ease-in-out; */
 }
 
-/* 2. 미세한 실선(lines): 물결처럼 부드럽게 위아래로 유영하는 모션 */
 .bg-lines {
   position: absolute;
   width: 100%;
@@ -188,10 +185,8 @@ section.active {
   background-size: 100% auto;
   background-position: top center;
   animation: floatMotion 10s infinite ease-in-out;
-  /* animation: gradientBreathe 4s infinite alternate ease-in-out; */
 }
 
-/* 3. 점들(dots): 밤하늘의 별처럼 미세하게 반짝이는(Twinkle) 모션 */
 .bg-dots {
   position: absolute;
   width: 100%;
@@ -213,11 +208,10 @@ section.active {
   animation: distortLines 20s infinite alternate ease-in-out;
 }
 
-/* 4. 네온 오브젝트(neo-obj): 독립적으로 둥둥 떠다니며 회전하는 모션 */
 .bg-neo {
   position: center center;
   size: 100% 100%;
-  /* top: 15%; 스크롤 배경 내에서의 위치
+  /* top: 15%; 
   right: 15%;
   width: 100px; */
   /* opacity: 0.8; */
@@ -225,27 +219,21 @@ section.active {
   filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.5));
 }
 
-/* === 개별 애니메이션 키프레임들 === */
-
-/* === 실선 왜곡 애니메이션 키프레임 === */
+/* 애니메이션 키프레임 */
 @keyframes distortLines {
   0% {
-    /* 기본 상태 */
     transform: perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)
       skewX(0deg);
   }
   33% {
-    /* 살짝 커지면서 우측으로 비틀어지고, 원근감이 들어감 */
     transform: perspective(1000px) scale(1.05) rotateX(-3deg) rotateY(-2deg)
       skewX(-2deg);
   }
   66% {
-    /* 좌측으로 비틀어지며 미세하게 수축 */
     transform: perspective(1000px) scale(0.98) rotateX(2deg) rotateY(2deg)
       skewX(2deg);
   }
   100% {
-    /* 다시 팽창하며 다른 각도로 일렁임 */
     transform: perspective(1000px) scale(1.03) rotateX(-1deg) rotateY(-1deg)
       skewX(-1deg);
   }
@@ -293,14 +281,14 @@ section.active {
   }
 }
 
-/* 스크롤 길이를 만들어주는 빈 공간 (bg-wrapper와 길이를 맞춥니다) */
 .journal-scroll-space {
-  height: 200vh;
+  position: relative;
+  height: 150vh;
   width: 100%;
   pointer-events: none;
+  z-index: 1;
 }
 
-/* 💡 화면에 고정되는 콘텐츠 래퍼 */
 .journal-fixed-content {
   position: sticky;
   top: 0;
@@ -320,61 +308,11 @@ section.active {
   z-index: 2;
 }
 
-/* 💡 스크롤을 생성하는 빈 공간 */
-.journal-scroll-space {
-  position: relative;
-  height: 150vh; /* 이 값이 클수록 더 깊게 스크롤됩니다 */
-  width: 100%;
-  pointer-events: none; /* 작성칸 클릭을 방해하지 않도록 처리 */
-  z-index: 1;
-}
-
-/* 스크롤되며 화면 우측 상단 쯤에서 시작하는 네온 도형 */
-/* .neon-obj {
-  position: absolute;
-  top: 40px;
-  right: 50px;
-  width: 80px;
-  opacity: 0.8;
-  transition: filter 0.3s ease;
-} */
-
-/* 스크롤되며 좌측 하단 쯤에 둥둥 떠있는 보라색 구체 */
-/* .journal-sphere {
-  position: absolute;
-  bottom: 20%;
-  left: 10%;
-  width: 250px;
-  opacity: 0.6;
-  살짝 일렁이고 떠다니는 애니메이션 유지
-  animation:
-    floatMotion 5s infinite ease-in-out,
-    blobShape 6s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-} */
-
-/* 소용돌이는 텍스트 영역 뒤에서 고정된 채 호흡 애니메이션 */
-/* .swirl-bg {
-  position: center center;
-  size: 100% 100%;
-  animation: floatRotate 8s infinite alternate ease-in-out;
-  filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.5));
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120%;
-  height: auto;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  opacity: 0.4;
-  animation: breathe 8s infinite ease-in-out;
-  pointer-events: none;
-} */
-
-/* === 유리 질감 텍스트 영역 및 태그 버튼 스타일 (기존과 동일) === */
+/* === 유리 질감 텍스트 영역 및 태그 버튼  === */
 .glass-textarea {
   width: 100%;
   height: 40vh;
-  background: #0000000c;
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -403,8 +341,8 @@ section.active {
 
 .chip {
   padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.192);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   cursor: pointer;
   font-size: 0.9rem;
@@ -413,7 +351,7 @@ section.active {
 
 .chip:hover,
 .chip.selected {
-  background: rgba(57, 255, 20, 0.2);
+  background: rgba(89, 55, 150, 0.3);
   border-color: #39ff14;
   color: #39ff14;
 }
@@ -423,7 +361,9 @@ section.active {
   color: #fff;
 }
 
+/* ==================================================================== */
 /* === 섹션 3: 꿈 분석 공간 (Analysis) === */
+
 #analysis {
   background-color: #000000;
   background-image: url('./pic/dots.svg');
@@ -453,11 +393,12 @@ section.active {
 .blob-sphere {
   width: 100%;
   height: 100%;
+  align-items: bottom center;
   object-fit: cover;
   border-radius: 50%;
   animation:
     blobShape 6s infinite alternate cubic-bezier(0.4, 0, 0.2, 1),
-    floatMotion 8s infinite ease-in-out;
+    floatMotions 8s infinite ease-in-out;
   box-shadow:
     inset 0 0 50px rgba(138, 43, 226, 0.5),
     0 0 30px rgba(138, 43, 226, 0.4);
@@ -465,20 +406,20 @@ section.active {
 
 @keyframes blobShape {
   0% {
-    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
   33% {
-    border-radius: 55% 45% 60% 40% / 45% 60% 40% 55%;
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
   }
   66% {
-    border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%;
+    border-radius: 40% 70% 30% 60% / 70% 40% 60% 30%;
   }
   100% {
-    border-radius: 60% 40% 50% 50% / 40% 60% 50% 50%;
+    border-radius: 50% 50% 60% 40% / 40% 50% 50% 60%;
   }
 }
 
-@keyframes floatMotion {
+@keyframes floatMotions {
   0%,
   100% {
     transform: translateY(0px) translateX(0px);
@@ -597,25 +538,24 @@ section.active {
   color: #fff;
 }
 
+/* ==================================================================== */
 /* === 랜딩 화면 버튼 특화 스타일 === */
 #enterBtn {
-  opacity: 0.2; /* 처음엔 흐릿하게 닫혀 있는 상태 */
-  pointer-events: none; /* 클릭 불가 */
-  transition: all 0.6s ease; /* 부드러운 색상/투명도 전환 */
+  opacity: 0.2;
+  pointer-events: none;
+  transition: all 0.6s ease;
 }
 
-/* 스크롤 하단에 도달했을 때 자바스크립트로 추가될 클래스 */
 #enterBtn.active-btn {
   opacity: 1;
-  pointer-events: auto; /* 클릭 가능 상태로 전환 */
-  background-color: #fff; /* 네온 그린으로 배경 꽉 채우기 */
+  pointer-events: auto;
+  background-color: #fff;
   border-color: #fff;
-  color: #593796; /* 배경이 밝아지므로 글씨는 검정으로 대비 */
+  color: #593796;
   box-shadow: 0 0 15px #583796cc;
   font-weight: 600;
 }
 
-/* 활성화된 버튼에 마우스 올렸을 때 추가 이펙트 */
 #enterBtn.active-btn:hover {
   background-color: #000;
   border-color: #39ff14;
@@ -624,6 +564,7 @@ section.active {
   color: #39ff14;
 }
 
+/* 커서 */
 #app {
   isolation: isolate;
 }
